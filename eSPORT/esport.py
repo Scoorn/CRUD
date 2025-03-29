@@ -57,7 +57,7 @@ def actualizar_datos_equipos(id_equipos,nuevo_nombre,nuevo_pais,nuevo_entrenador
     if conexion: 
         try: 
             with conexion.cursor() as cursor:  # Crea un cursor para ejecutar comandos SQL
-                cursor.execute("UPDATE public.equipos SET nombre = %s, pais = %s, entrenador = %s WHERE id = %s", (nuevo_nombre,nuevo_pais,nuevo_entrenador,id_equipos)) # Actualiza los datos del registro especificado
+                cursor.execute("UPDATE public.equipos SET nombre = %s, pais = %s, entrenador = %s WHERE id_equipos = %s", (nuevo_nombre,nuevo_pais,nuevo_entrenador,id_equipos)) # Actualiza los datos del registro especificado
                 conexion.commit() # Confirma la transacción para guardar los cambios
                 if cursor.rowcount>0:
                     print("Actualizacion exitosa") # Imprime un mensaje si el registro fue actualizado exitosamente
@@ -129,7 +129,7 @@ def actualizar_datos_jugadores(id_jugadores,nuevo_nickname,nuevo_rol,nuevo_equip
     if conexion: 
         try: 
             with conexion.cursor() as cursor: # Crea un cursor para ejecutar comandos SQL
-                cursor.execute("UPDATE public.jugadores SET nickname = %s, rol = %s, equipo_id = %s WHERE id = %s", (nuevo_nickname,nuevo_rol,nuevo_equipo, id_jugadores)) # Actualiza los datos del registro especificado
+                cursor.execute("UPDATE public.jugadores SET nickname = %s, rol = %s, equipo_id = %s WHERE id_jugadores = %s", (nuevo_nickname,nuevo_rol,nuevo_equipo, id_jugadores)) # Actualiza los datos del registro especificado
                 conexion.commit() # Confirma la transacción para guardar los cambios
 
                 if cursor.rowcount>0:
