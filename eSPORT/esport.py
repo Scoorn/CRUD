@@ -7,7 +7,7 @@ def conectar():
         conexion = psycopg.connect( host="localhost", # Dirección del servidor de la base de datos
         dbname="eSports", # Nombre de la base de datos a la que te quieres conectar
         user="postgres", # Nombre de usuario de la base de datos
-        password="12345678" # Contraseña del usuario de la base de datos
+        password="123456789" # Contraseña del usuario de la base de datos
         )
         print("Conexión exitosa") # Imprime un mensaje si la conexión fue exitosa return conexion
         # Devuelve el objeto de conexión
@@ -196,10 +196,11 @@ def menu_equipos():
             print("\n--- Actualizar Equipo ---")
             leer_datos_equipos()
             id_equipos = obtener_entrada("Ingrese el ID del equipo a actualizar: ")
-            nuevo_nombre = obtener_entrada("Nuevo nombre (deje vacío para no cambiar): ")
-            nuevo_pais = obtener_entrada("Nuevo país (deje vacío para no cambiar): ")
-            nuevo_entrenador = obtener_entrada("Nuevo entrenador (deje vacío para no cambiar): ")
-            actualizar_datos_equipos(id_equipos, nuevo_nombre or None, nuevo_pais or None, nuevo_entrenador or None)
+            print("Recuerde no dejar ningun campo vacio")
+            nuevo_nickname = obtener_entrada("Nuevo nombre: ")
+            nuevo_pais = obtener_entrada("Nuevo país : ")
+            nuevo_entrenador = obtener_entrada("Nuevo entrenador : ")
+            actualizar_datos_equipos(id_equipos, nuevo_nickname or None, nuevo_pais or None, nuevo_entrenador or None)
             
         elif opcion == '3':
             print("\n--- Eliminar Equipo ---")
@@ -241,11 +242,12 @@ def menu_jugadores():
         elif opcion == '2':
             print("-------Actualizar datos de jugador--------")
             leer_datos_jugadores()
-            id_jugador = obtener_entrada ("Ingrese el ID del Jugador que desea Actualizar: ")
-            nickname = obtener_entrada ("Ingrese el nuevo nickname (deje vacío para no cambiar): ")
-            rol = obtener_entrada ("Ingrese el nuevo rol del jugador (deje vacío para no cambiar): ")
-            equipo_id = obtener_entrada ("Ingrese nuevo ID del equipo del jugador (deje vacío para no cambiar): ")
-            actualizar_datos_jugadores(id_jugador,nickname,rol,equipo_id)
+            id_jugadores = obtener_entrada ("Ingrese el ID del Jugador que desea Actualizar: ")
+            print("Recuerde no dejar ningun campo vacio")
+            nuevo_nickname = obtener_entrada ("Ingrese el nuevo nickname: ")
+            nuevo_rol = obtener_entrada ("Ingrese el nuevo rol del jugador: ")
+            nuevo_equipo = obtener_entrada ("Ingrese nuevo ID del equipo del jugador: ")
+            actualizar_datos_jugadores(id_jugadores,nuevo_nickname or None ,nuevo_rol or None,nuevo_equipo )
         
         elif opcion == '3':
              print("\n--- Eliminar Jugadores ---")
@@ -278,6 +280,7 @@ if __name__ == "__main__":
             break
         else:
             print("Opción no válida. Intente nuevamente.")
+    
     
     
    
