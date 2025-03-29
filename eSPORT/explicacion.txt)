@@ -1,0 +1,49 @@
+Este código es un sistema de gestión para equipos y jugadores de eSports que interactúa con una base de datos PostgreSQL. Aquí te explico su estructura y relaciones:
+
+📌 Funcionamiento general
+Conexión a la base de datos:
+
+La función conectar() establece la conexión usando credenciales locales (usuario postgres, base de datos eSports).
+
+Operaciones CRUD:
+
+Para equipos (tabla equipos): Crear, leer, actualizar y eliminar.
+
+Para jugadores (tabla jugadores): Crear, leer, actualizar y eliminar.
+
+Menús interactivos:
+
+Menú principal → Gestionar equipos o jugadores.
+
+Submenús → Operaciones específicas (ej: actualizar datos).
+
+🔗 Relación entre tablas
+Las tablas están relacionadas mediante claves foráneas:
+
+Tabla equipos:
+
+Campos: id_equipos (clave primaria), nombre, país, entrenador.
+
+Tabla jugadores:
+
+Campos: id_jugadores (clave primaria), nickname, rol, equipo_id (clave foránea que referencia id_equipos).
+
+Relación: Un jugador pertenece a un equipo (equipo_id → id_equipos).
+
+⚙️ Lógica clave
+Borrado en cascada:
+
+Al eliminar un equipo (eliminar_equipo()), primero se borran sus jugadores asociados para mantener la integridad referencial.
+
+Validaciones:
+
+Verifica si existen registros antes de actualizar/eliminar (usando rowcount).
+
+Manejo de errores con try-except (ej: conexión fallida, SQL mal formado).
+
+Entradas de usuario:
+
+obtener_entrada() limpia los datos ingresados (elimina espacios vacíos).
+
+Permite campos opcionales en actualizaciones (ej: dejar vacío para no cambiar el nombre).
+
