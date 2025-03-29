@@ -6,9 +6,12 @@
 
 ## 🚀 Requisitos Previos  
 1. **PostgreSQL**: Instalado y corriendo localmente.  
-2. **Python 3.8+**: Con las bibliotecas `psycopg` (o `psycopg2`).  
+2. **Python 3.8+**: Con las bibliotecas `psycopg` y `psycopg-binary`.  
    ```sh
    pip install psycopg
+   ```
+    ```sh
+   pip install psycopg-binary
    ```  
 3. **Base de datos**:  
    - Crear una DB llamada `eSports` (o modificar el nombre en el código).  
